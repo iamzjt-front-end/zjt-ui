@@ -1,0 +1,19 @@
+{
+  "name": "zjt",
+  "version": "0.0.1",
+  "description": "这是一个UI框架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/zjt1326002840/ZJT-UI.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "zjt",
+  "license": "MIT"
+}
