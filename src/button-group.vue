@@ -6,7 +6,15 @@
 
 <script>
   export default {
-    name: "button-group"
+    name: "button-group",
+    mounted() {
+      for (let node of this.$el.children) {
+        let name = node.nodeName.toLowerCase()
+        if(name != 'button') {
+          console.warn(`z-button-group 的子元素应该全是 z-button, 不能写 ${name}`)
+        }
+      }
+    }
   }
 </script>
 
