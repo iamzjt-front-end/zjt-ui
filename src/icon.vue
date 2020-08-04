@@ -13,7 +13,7 @@
 
 <style lang="scss" scoped>
   .z-icon {
-    width: 1.25em;
-    height: 1.25em;
+    width: 1em;
+    height: 1em;
   }
 </style>

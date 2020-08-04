@@ -1,7 +1,8 @@
 <template>
-  <button class="z-button" :class="{[`icon-${iconPosition}`]: true}">
-    <z-icon v-if="icon" :the-name="icon" class="icon"></z-icon>
-    <z-icon class="loading" the-name="loading"></z-icon>
+  <button class="z-button" :class="{[`icon-${iconPosition}`]: true}"
+          @click="$emit('click')">
+    <z-icon v-if="icon && !loading" :the-name="icon" class="icon"></z-icon>
+    <z-icon v-if="loading" class="loading icon" the-name="loading"></z-icon>
     <div class="content">
       <slot></slot>
     </div>
@@ -13,6 +14,10 @@
     // props: ['icon', 'iconPosition']
     props: {
       icon: {},
+      loading: {
+        type: Boolean,
+        default: false
+      },
       iconPosition: {
         type: String,
         default: 'left',
@@ -76,12 +81,14 @@
         margin-left: .15em;
         margin-top: .125em;
       }
+
       > .content {
         order: 1;
       }
     }
+
     .loading {
-      animation: spin 2s infinite linear;
+      animation: spin 1.7s infinite linear;
     }
   }
 </style>

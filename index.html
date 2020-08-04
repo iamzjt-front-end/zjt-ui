@@ -35,11 +35,17 @@
 </head>
 <body>
 <div id="app">
-  <z-button>按钮</z-button>
-  <z-button icon="settings">按钮</z-button>
-  <z-button icon="settings" icon-position="right">按钮</z-button>
+  <z-button :loading="loading1"
+            @click="loading1 = !loading1">按钮
+  </z-button>
+  <z-button icon="settings" :loading="loading2"
+            @click="loading2 = !loading2">按钮
+  </z-button>
+  <z-button icon="settings" icon-position="right" :loading="loading3"
+            @click="loading3 = !loading3">按钮
+  </z-button>
 </div>
 <script src="./src/app.js"></script>
-<script src="//at.alicdn.com/t/font_1985174_fozrc00ewqb.js"></script>
+<script src="//at.alicdn.com/t/font_1985174_n71mkzirku.js"></script>
 </body>
 </html>
