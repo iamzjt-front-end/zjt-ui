@@ -2,37 +2,37 @@
 <html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
-  <title>ZJT</title>
+  <title>ZJT-UI</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
 
-    :root {
-      --button-height: 32px;
-      --font-size: 14px;
-      --button-bg: white;
-      --button-active-bg: #eee;
-      --button-radius: 4px;
-      --color: #999;
-      --border-color: #999;
-      --border-color-hover: #666;
-    }
+      :root {
+          --button-height: 32px;
+          --font-size: 14px;
+          --button-bg: white;
+          --button-active-bg: #eee;
+          --button-radius: 4px;
+          --color: #999;
+          --border-color: #999;
+          --border-color-hover: #666;
+      }
 
-    #app {
-      margin: 20px;
-    }
+      #app {
+          margin: 20px;
+      }
 
-    body {
-      font-size: var(--font-size);
-    }
+      body {
+          font-size: var(--font-size);
+      }
   </style>
   <style>
-    .box {
-      margin: 20px;
-    }
+      .box {
+          margin: 20px;
+      }
   </style>
 </head>
 <body>
@@ -53,7 +53,7 @@
 
   <div class="box">
     <z-input v-model="message"></z-input>
-    <p>{{message}}</p>
+    <p>{{ message }}</p>
     <button @click="message+=1">+1</button>
   </div>
 
@@ -68,9 +68,9 @@
               @click="loading3 = !loading3">按钮
     </z-button>
     <z-button-group>
-      <z-button icon="left">上一页</z-button>
+      <z-button icon="left" icon-position="left">上一页</z-button>
       <z-button>更多</z-button>
-      <z-button icon="right" icon-position="right">下一页</z-button>
+      <z-button icon="right">下一页</z-button>
     </z-button-group>
   </div>
 </div>
