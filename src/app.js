@@ -1,13 +1,17 @@
 import Vue from 'vue'
-import Button from './button'
-import Icon from './icon'
-import ButtonGroup from './button-group'
-import Input from './input'
+import ZButton from './z-button'
+import ZIcon from './z-icon'
+import ZButtonGroup from './z-button-group'
+import ZInput from './z-input'
+import ZRow from './z-row'
+import ZCol from './z-col'
 
-Vue.component('z-button', Button)
-Vue.component('z-icon', Icon)
-Vue.component('z-button-group', ButtonGroup)
-Vue.component('z-input', Input)
+Vue.component('z-button', ZButton)
+Vue.component('z-icon', ZIcon)
+Vue.component('z-button-group', ZButtonGroup)
+Vue.component('z-input', ZInput)
+Vue.component('z-row', ZRow)
+Vue.component('z-col', ZCol)
 
 new Vue({
   el: '#app',
