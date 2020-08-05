@@ -11,6 +11,7 @@
 
 <script>
   export default {
+    name: "z-button",
     // props: ['icon', 'iconPosition']
     props: {
       icon: {},
@@ -30,7 +31,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   @keyframes spin {
     0% {
       transform: rotate(0deg);
@@ -67,7 +68,6 @@
     > .icon {
       order: 1;
       margin-right: .15em;
-      margin-top: .125em;
     }
 
     > .content {
@@ -79,7 +79,6 @@
         order: 2;
         margin-right: 0;
         margin-left: .15em;
-        margin-top: .125em;
       }
 
       > .content {

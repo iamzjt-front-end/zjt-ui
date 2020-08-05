@@ -8,7 +8,7 @@
   import './svg'
 
   export default {
-    name: "icon",
+    name: "z-icon",
     props: ['theName']
   }
 </script>
