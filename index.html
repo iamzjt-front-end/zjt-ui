@@ -44,7 +44,17 @@
   </div>
 
   <div class="box">
+    <z-input value="王" @change="inputChange"></z-input>
+  </div>
+
+  <div class="box">
     <z-input value="王" error="姓名不能少于两个字"></z-input>
+  </div>
+
+  <div class="box">
+    <z-input v-model="message"></z-input>
+    <p>{{message}}</p>
+    <button @click="message+=1">+1</button>
   </div>
 
   <div class="box">
@@ -54,7 +64,7 @@
     <z-button icon="settings" :loading="loading2"
               @click="loading2 = !loading2">按钮
     </z-button>
-    <z-button icon="settings" icon-position="right" :loading="loading3"
+    <z-button icon="settings" icon-position="left" :loading="loading3"
               @click="loading3 = !loading3">按钮
     </z-button>
     <z-button-group>

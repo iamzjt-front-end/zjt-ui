@@ -1,6 +1,10 @@
 <template>
   <div class="wrapper" :class="{'error': error}">
-    <input type="text" class="z-input" :value="value" :disabled=disabled :readonly="readonly">
+    <input type="text" class="z-input" :value="value" :disabled=disabled :readonly="readonly"
+           @change="$emit('change', $event.target.value)"
+           @input="$emit('input', $event.target.value)"
+           @focus="$emit('focus', $event.target.value)"
+           @blur="$emit('blur', $event.target.value)">
     <template v-if="error">
       <icon the-name="error" class="icon-error"></icon>
       <span class="error-message">{{error}}</span>
@@ -10,6 +14,7 @@
 
 <script>
   import Icon from './icon'
+
   export default {
     name: "z-input",
     components: {
@@ -46,6 +51,7 @@
     font-size: $font-size;
     display: inline-flex;
     align-items: center;
+
     > :not(:last-child) {
       margin-right: .5em;
     }
@@ -72,18 +78,22 @@
         cursor: not-allowed;
       }
     }
+
     &.error {
       .z-input {
         border-color: $red;
+
         &:focus {
           box-shadow: 0px 1px 3px $red inset;
           outline: none;
         }
       }
     }
+
     .icon-error {
       fill: $red;
     }
+
     .error-message {
       color: $red;
     }

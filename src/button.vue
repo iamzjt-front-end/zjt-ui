@@ -1,5 +1,5 @@
 <template>
-  <button class="z-button" :class="{[`icon-${iconPosition}`]: true}"
+  <button class="z-button" :class=[`icon-${iconPosition}`]
           @click="$emit('click')">
     <z-icon v-if="icon && !loading" :the-name="icon" class="icon"></z-icon>
     <z-icon v-if="loading" class="loading icon" the-name="loading"></z-icon>
@@ -21,7 +21,7 @@
       },
       iconPosition: {
         type: String,
-        default: 'left',
+        default: 'right',
         validator(value) {
           // 属性检查器
           return !(value !== 'left' && value !== 'right');
@@ -64,14 +64,16 @@
     &:focus {
       outline: none;
     }
+    &.icon-left {
+      > .icon {
+        order: 1;
+        margin-right: .15em;
+        margin-top: 0.12em;
+      }
 
-    > .icon {
-      order: 1;
-      margin-right: .15em;
-    }
-
-    > .content {
-      order: 2;
+      > .content {
+        order: 2;
+      }
     }
 
     &.icon-right {
@@ -79,6 +81,7 @@
         order: 2;
         margin-right: 0;
         margin-left: .15em;
+        margin-top: 0.12em;
       }
 
       > .content {
