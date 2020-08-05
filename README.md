@@ -1,36 +1,35 @@
-# ZJT-UI
-## 一个Vue UI 组件
+# ZJT-UI 从零开始的UI组件库
 
-### 介绍
+## 介绍
+这是我在学习 Vue 过程中做的一个 UI 框架，希望对你有用。
 
-
-### 安装
+## 开始使用
+1. 添加CSS样式
 使用本框架前，请在CSS中开启border-box
 ```css
-* {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 ```
+IE8 及以上浏览器都支持此样式
 
-### 软件架构
+2. 安装 ZJT-UI
+```
+npm i --save zjt-ui
+```
+
+## 文档
 软件架构说明
 
 
-### 安装教程
+## 提问
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
-### 使用说明
+## 变更
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
 
-### 参与贡献
+## 联系
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 贡献
