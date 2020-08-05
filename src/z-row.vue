@@ -1,12 +1,22 @@
 <template>
-  <div class="z-row">
+  <div class="z-row" :style="{marginLeft: -gutter/2+'px', marginRight: -gutter/2+'px'}">
     <slot></slot>
   </div>
 </template>
 
 <script>
 export default {
-  name: "z-row"
+  name: "z-row",
+  props: {
+    gutter: {
+      type: [Number, String]
+    }
+  },
+  mounted() {
+    this.$children.forEach(vm => {
+     vm.gutter = this.gutter;
+    })
+  }
 }
 </script>
 

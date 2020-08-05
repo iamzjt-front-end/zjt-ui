@@ -1,5 +1,7 @@
 <template>
-  <div class="z-col" :class="[`col-${span}`]">
+  <div class="z-col" :class="[span && `col-${span}`, offset && `offset-${offset}`]"
+  :style="{paddingLeft: gutter/2+'px', paddingRight: gutter/2+'px'}">
+    <div style="border: 1px solid green; height: 100px;"></div>
     <slot></slot>
   </div>
 </template>
@@ -10,6 +12,14 @@ export default {
   props: {
     span: {
       type: [Number, String]
+    },
+    offset: {
+      type: [Number, String]
+    },
+  },
+  data() {
+    return {
+      gutter: 0
     }
   }
 }
@@ -18,15 +28,20 @@ export default {
 <style lang="scss" scoped>
 .z-col {
   height: 100px;
-  background-color: grey;
   width: 50%;
-  border: 1px solid red;
 
   $class-prefix: col-;
 
   @for $i from 1 through 24 {
     &.#{$class-prefix}#{$i} {
       width: ($i / 24) * 100%;
+    }
+  }
+  $class-prefix: offset-;
+
+  @for $i from 1 through 24 {
+    &.#{$class-prefix}#{$i} {
+      margin-left: ($i / 24) * 100%;
     }
   }
 }
