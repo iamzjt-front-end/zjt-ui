@@ -41,6 +41,7 @@ export default {
 <style lang="scss" scoped>
 .z-row {
   display: flex;
+  flex-wrap: wrap;
   margin-top: 20px;
   margin-bottom: 20px;
   &.align-left {
