@@ -1,5 +1,7 @@
 <template>
-
+  <div class="layout">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
@@ -8,6 +10,8 @@ name: "z-layout"
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.layout {
 
+}
 </style>
