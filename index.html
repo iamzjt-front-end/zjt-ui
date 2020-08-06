@@ -26,21 +26,28 @@
       }
   </style>
   <style>
-      .demo {
-          background: #ddd;
-          border: 1px solid #666;
-          min-height: 100px;
-      }
+    .z-sider {
+        background-color: #555;
+        width: 200px;
+    }
+    .z-header {
+        background-color: #999;
+        height: 100px;
+    }
+    .z-footer {
+        background-color: #ccc;
+        height: 50px;
+    }
   </style>
 </head>
 <body>
 <div id="app">
   <z-layout style="height: 100vh">
-    <z-sider class="demo">sider</z-sider>
+    <z-sider>sider</z-sider>
     <z-layout>
-      <z-header class="demo">header</z-header>
-      <z-content class="demo">content</z-content>
-      <z-footer class="demo">footer</z-footer>
+      <z-header>header</z-header>
+      <z-content>content</z-content>
+      <z-footer>footer</z-footer>
     </z-layout>
   </z-layout>
 
