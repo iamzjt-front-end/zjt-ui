@@ -44,6 +44,7 @@ export default {
 .z-button {
   font-size: var(--font-size);
   height: var(--button-height);
+  line-height: var(--button-height);
   padding: 0 1em;
   border-radius: var(--button-radius);
   border: 1px solid var(--border-color);
@@ -69,7 +70,6 @@ export default {
     > .icon {
       order: 1;
       margin-right: .15em;
-      //margin-top: 0.12em;
     }
 
     > .content {
@@ -82,7 +82,6 @@ export default {
       order: 2;
       margin-right: 0;
       margin-left: .15em;
-      //margin-top: 0.12em;
     }
 
     > .content {

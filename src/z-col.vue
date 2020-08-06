@@ -88,21 +88,13 @@ export default {
 
 <style lang="scss" scoped>
 .z-col {
-  height: 50px;
-
-  .col-content {
-    height: 50px;
-  }
-
   $class-prefix: col-;
-
   @for $i from 1 through 24 {
     &.#{$class-prefix}#{$i} {
       width: ($i / 24) * 100%;
     }
   }
   $class-prefix: offset-;
-
   @for $i from 1 through 24 {
     &.#{$class-prefix}#{$i} {
       margin-left: ($i / 24) * 100%;
