@@ -49,6 +49,7 @@ export default {
   .col-content {
     border: 1px solid green;
     height: 50px;
+    background-image: linear-gradient(to right, #f6f5f0, skyblue ,#f6f5f0);
   }
 
   $class-prefix: col-;
