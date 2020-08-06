@@ -40,8 +40,17 @@ new Vue({
       console.log(e);
     },
     showToast() {
-      this.$toast('我是 message');
+      this.$toast('你好啊', {
+        // closeButton: {
+        //   text: '知道了',
+        //   callback() {
+        //     console.log('用户说他知道了')
+        //   }
+        // }
+        // enableHtml: true
+      });
     }
   },
-  created() {}
+  created() {
+  }
 })
