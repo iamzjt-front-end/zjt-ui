@@ -1,5 +1,7 @@
 <template>
-
+<div class="z-footer">
+  <slot></slot>
+</div>
 </template>
 
 <script>
@@ -9,5 +11,7 @@ name: "z-footer"
 </script>
 
 <style scoped>
+.z-footer {
 
+}
 </style>
