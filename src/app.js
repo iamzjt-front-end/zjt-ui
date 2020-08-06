@@ -10,6 +10,8 @@ import ZHeader from './z-header'
 import ZSider from './z-sider'
 import ZContent from './z-content'
 import ZFooter from './z-footer'
+import ZToast from './z-toast'
+import plugin from './plugin'
 
 Vue.component('z-button', ZButton)
 Vue.component('z-icon', ZIcon)
@@ -22,6 +24,8 @@ Vue.component('z-header', ZHeader)
 Vue.component('z-sider', ZSider)
 Vue.component('z-content', ZContent)
 Vue.component('z-footer', ZFooter)
+Vue.component('z-toast', ZToast)
+Vue.use(plugin)
 
 new Vue({
   el: '#app',
@@ -34,6 +38,10 @@ new Vue({
   methods: {
     inputChange(e) {
       console.log(e);
+    },
+    showToast() {
+      this.$toast('我是 message');
     }
-  }
+  },
+  created() {}
 })
