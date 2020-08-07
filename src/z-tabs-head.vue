@@ -20,7 +20,6 @@ $tab-height: 40px;
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
-  align-items: center;
   border: 2px solid #555555;
   .actions-wrapper {
     margin-left: auto;

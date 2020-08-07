@@ -50,9 +50,13 @@ export default {
 <style lang="scss" scoped>
 .z-tabs-item {
   flex-shrink: 0;
-  padding: 1em;
+  padding: 0 1em;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  align-items: center;
   &.active {
-    background: #666666;
+    background: #666;
   }
 }
 </style>
