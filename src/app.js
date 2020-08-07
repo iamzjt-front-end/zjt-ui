@@ -51,7 +51,7 @@ new Vue({
       console.log(e);
     },
     showToast() {
-      this.$toast('你好啊', {
+      this.$toast(`你好啊, 你的智商余额为${parseInt(Math.random() * 100)}`, {
         closeButton: {
           text: '关闭',
           callback() {
@@ -61,10 +61,11 @@ new Vue({
         autoClose: true,
         enableHtml: true,
         position: 'right',
+        autoCloseDelay: 3
       });
     }
   },
   created() {
 
-  }
+  },
 })

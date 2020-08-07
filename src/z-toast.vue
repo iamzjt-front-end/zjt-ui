@@ -86,6 +86,14 @@ export default {
 $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .z-toast {
   position: fixed;
   display: flex;
@@ -98,6 +106,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   background: $toast-bg;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
+  animation: fade-in();
 
   .message {
     padding: 8px 0;
