@@ -1,6 +1,6 @@
 <template>
   <svg class="z-icon">
-    <use :xlink:href="`#i-${theName}`"></use>
+    <use :xlink:href="`#i-${name}`"></use>
   </svg>
 </template>
 
@@ -9,7 +9,7 @@
 
   export default {
     name: "z-icon",
-    props: ['theName']
+    props: ['name']
   }
 </script>
 

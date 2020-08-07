@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+
 export default {
   name: "z-tabs",
   props: {
@@ -20,12 +22,26 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      eventBus: new Vue()
+    }
+  },
+  provide() {
+    return {
+      eventBus: this.eventBus
+    }
+  },
   created() {
-    // this.$emit('update:selected', 'xxx')
+  },
+  mounted() {
+    this.eventBus.$emit('update:selected', this.selected)
   }
 }
 </script>
 
 <style lang="scss" scoped>
-
+.z-tabs {
+  width: 500px;
+}
 </style>

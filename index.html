@@ -44,40 +44,43 @@
 </head>
 <body>
 <div id="app">
-<!--  <z-tabs :selected.sync="selectedTab" direction="">-->
-<!--    <z-tabs-head>-->
-<!--      <z-tabs-item name="woman">-->
-<!--        <z-icon name="settings"></z-icon>美女-->
-<!--      </z-tabs-item>-->
-<!--      <z-tabs-item name="finance" disabled>-->
-<!--        财经-->
-<!--      </z-tabs-item>-->
-<!--      <z-tabs-item name="sports">-->
-<!--        体育-->
-<!--      </z-tabs-item>-->
-<!--    </z-tabs-head>-->
-<!--    <z-tabs-body>-->
-<!--      <z-tabs-pane name="woman">-->
-<!--        美女相关资讯-->
-<!--      </z-tabs-pane>-->
-<!--      <z-tabs-pane name="finance">-->
-<!--        美女相关资讯-->
-<!--      </z-tabs-pane>-->
-<!--      <z-tabs-pane name="sports">-->
-<!--        体育相关资讯-->
-<!--      </z-tabs-pane>-->
-<!--    </z-tabs-body>-->
-<!--  </z-tabs>-->
+  <z-tabs :selected.sync="selectedTab">
+    <z-tabs-head>
+      <template slot="actions">
+        <button>设置</button>
+      </template>
+      <z-tabs-item name="woman">
+        <z-icon name="settings"></z-icon>美女
+      </z-tabs-item>
+      <z-tabs-item name="finance" disabled>
+        财经
+      </z-tabs-item>
+      <z-tabs-item name="sports">
+        体育
+      </z-tabs-item>
+    </z-tabs-head>
+    <z-tabs-body>
+      <z-tabs-pane name="woman">
+        美女相关资讯
+      </z-tabs-pane>
+      <z-tabs-pane name="finance">
+        财经相关资讯
+      </z-tabs-pane>
+      <z-tabs-pane name="sports">
+        体育相关资讯
+      </z-tabs-pane>
+    </z-tabs-body>
+  </z-tabs>
 
-    <div style="margin: 100px 200px;">
-      <button @click="showToast1">top</button>
-      <button @click="showToast2">middle</button>
-      <button @click="showToast3">bottom</button>
-      <button @click="showToast4">top-left</button>
-      <button @click="showToast5">top-right</button>
-      <button @click="showToast6">bottom-left</button>
-      <button @click="showToast7">bottom-right</button>
-    </div>
+<!--    <div style="margin: 100px 200px;">-->
+<!--      <button @click="showToast1">top</button>-->
+<!--      <button @click="showToast2">middle</button>-->
+<!--      <button @click="showToast3">bottom</button>-->
+<!--      <button @click="showToast4">top-left</button>-->
+<!--      <button @click="showToast5">top-right</button>-->
+<!--      <button @click="showToast6">bottom-left</button>-->
+<!--      <button @click="showToast7">bottom-right</button>-->
+<!--    </div>-->
 
 
   <!--  <z-layout style="height: 100vh">-->
@@ -122,42 +125,42 @@
   <!--    </z-col>-->
   <!--  </z-row>-->
 
-  <!--    <div class="box">-->
-  <!--      <z-input value="张三" disabled></z-input>-->
-  <!--      <z-input value="李四" readonly></z-input>-->
-  <!--      <z-input value="王五"></z-input>-->
-  <!--    </div>-->
+<!--      <div class="box">-->
+<!--        <z-input value="张三" disabled></z-input>-->
+<!--        <z-input value="李四" readonly></z-input>-->
+<!--        <z-input value="王五"></z-input>-->
+<!--      </div>-->
 
-  <!--    <div class="box">-->
-  <!--      <z-input value="王" @change="inputChange"></z-input>-->
-  <!--    </div>-->
+<!--      <div class="box">-->
+<!--        <z-input value="王" @change="inputChange"></z-input>-->
+<!--      </div>-->
 
-  <!--    <div class="box">-->
-  <!--      <z-input value="王" error="姓名不能少于两个字"></z-input>-->
-  <!--    </div>-->
+<!--      <div class="box">-->
+<!--        <z-input value="王" error="姓名不能少于两个字"></z-input>-->
+<!--      </div>-->
 
-  <!--    <div class="box">-->
-  <!--      <z-input v-model="message"></z-input>-->
-  <!--      <p>{{ message }}</p>-->
-  <!--      <button @click="message+=1">+1</button>-->
-  <!--    </div>-->
+<!--      <div class="box">-->
+<!--        <z-input v-model="message"></z-input>-->
+<!--        <p>{{ message }}</p>-->
+<!--        <button @click="message+=1">+1</button>-->
+<!--      </div>-->
 
-  <!--    <div class="box">-->
-  <!--      <z-button :loading="loading1"-->
-  <!--                @click="loading1 = !loading1">按钮-->
-  <!--      </z-button>-->
-  <!--      <z-button icon="settings" :loading="loading2"-->
-  <!--                @click="loading2 = !loading2">按钮-->
-  <!--      </z-button>-->
-  <!--      <z-button icon="settings" icon-position="left" :loading="loading3"-->
-  <!--                @click="loading3 = !loading3">按钮-->
-  <!--      </z-button>-->
-  <!--      <z-button-group>-->
-  <!--        <z-button icon="left" icon-position="left">上一页</z-button>-->
-  <!--        <z-button>更多</z-button>-->
-  <!--        <z-button icon="right">下一页</z-button>-->
-  <!--      </z-button-group>-->
-  <!--    </div>-->
+<!--      <div class="box">-->
+<!--        <z-button :loading="loading1"-->
+<!--                  @click="loading1 = !loading1">按钮-->
+<!--        </z-button>-->
+<!--        <z-button icon="settings" :loading="loading2"-->
+<!--                  @click="loading2 = !loading2">按钮-->
+<!--        </z-button>-->
+<!--        <z-button icon="settings" icon-position="left" :loading="loading3"-->
+<!--                  @click="loading3 = !loading3">按钮-->
+<!--        </z-button>-->
+<!--        <z-button-group>-->
+<!--          <z-button icon="left" icon-position="left">上一页</z-button>-->
+<!--          <z-button>更多</z-button>-->
+<!--          <z-button icon="right">下一页</z-button>-->
+<!--        </z-button-group>-->
+<!--      </div>-->
 </div>
 <script src="./src/app.js"></script>
 </body>

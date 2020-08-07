@@ -6,7 +6,8 @@
 
 <script>
 export default {
-  name: "z-tabs-body"
+  name: "z-tabs-body",
+  inject: ['eventBus'],
 }
 </script>
 

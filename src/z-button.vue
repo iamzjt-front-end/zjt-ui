@@ -1,8 +1,8 @@
 <template>
   <button class="z-button" :class=[`icon-${iconPosition}`]
           @click="$emit('click')">
-    <z-icon v-if="icon && !loading" :the-name="icon" class="icon"></z-icon>
-    <z-icon v-if="loading" class="loading icon" the-name="loading"></z-icon>
+    <z-icon v-if="icon && !loading" :name="icon" class="icon"></z-icon>
+    <z-icon v-if="loading" class="loading icon" name="loading"></z-icon>
     <div class="content">
       <slot></slot>
     </div>
