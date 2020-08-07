@@ -41,7 +41,7 @@ export default {
   },
   methods: {
     xxx() {
-      this.eventBus.$emit('update:selected', this.name)
+      this.eventBus.$emit('update:selected', this.name, this)
     }
   }
 }
@@ -59,6 +59,7 @@ $font-color: skyblue;
   &.active {
     color: $font-color;
     font-weight: bold;
+    user-select:none;
   }
 }
 </style>

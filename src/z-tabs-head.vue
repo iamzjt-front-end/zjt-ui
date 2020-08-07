@@ -12,9 +12,11 @@
 export default {
   name: "z-tabs-head",
   inject: ['eventBus'],
-  created() {
-    this.eventBus.$on('update:selected', item => {
-      console.log(item);
+  mounted() {
+    this.eventBus.$on('update:selected', (item, vm) => {
+      let {width, height, top, left} = vm.$el.getBoundingClientRect()
+      this.$refs.line.style.width = `${width}px`
+      this.$refs.line.style.left = `${left}px`
     })
   }
 }
@@ -34,8 +36,8 @@ $border-color: skyblue;
   .line {
     position: absolute;
     bottom: 0;
-    width: 70px;
     border-bottom: 3px solid $border-color;
+    transition: all 0.3s;
   }
 }
 </style>
