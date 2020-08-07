@@ -40,6 +40,7 @@ export default {
 
 <style lang="scss" scoped>
 .z-tabs-pane {
+  padding: 1em;
   &.active {
   }
 }

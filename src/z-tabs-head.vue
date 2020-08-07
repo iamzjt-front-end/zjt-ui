@@ -30,13 +30,18 @@ $border-color: skyblue;
   height: $tab-height;
   justify-content: flex-start;
   position: relative;
+  border-bottom: 1px solid skyblue;
   .actions-wrapper {
     margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0.3em;
   }
   .line {
     position: absolute;
     bottom: 0;
-    border-bottom: 3px solid $border-color;
+    border-bottom: 2px solid $border-color;
     transition: all 0.3s;
   }
 }
