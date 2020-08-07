@@ -106,7 +106,7 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   background: $toast-bg;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  animation: fade-in();
+  animation: fade-in;
 
   .message {
     padding: 8px 0;
