@@ -41,7 +41,6 @@ export default {
 <style lang="scss" scoped>
 .z-tabs-pane {
   &.active {
-    background: #666666;
   }
 }
 </style>

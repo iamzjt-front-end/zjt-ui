@@ -48,6 +48,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$font-color: skyblue;
 .z-tabs-item {
   flex-shrink: 0;
   padding: 0 1em;
@@ -56,7 +57,8 @@ export default {
   display: flex;
   align-items: center;
   &.active {
-    background: #666;
+    color: $font-color;
+    font-weight: bold;
   }
 }
 </style>
