@@ -12,6 +12,11 @@ import ZContent from './z-content'
 import ZFooter from './z-footer'
 import ZToast from './z-toast'
 import plugin from './plugin'
+import ZTabs from './z-tabs'
+import ZTabsHead from './z-tabs-head'
+import ZTabsItem from './z-tabs-item'
+import ZTabsBody from './z-tabs-body'
+import ZTabsPane from './z-tabs-pane'
 
 Vue.component('z-button', ZButton)
 Vue.component('z-icon', ZIcon)
@@ -26,6 +31,11 @@ Vue.component('z-content', ZContent)
 Vue.component('z-footer', ZFooter)
 Vue.component('z-toast', ZToast)
 Vue.use(plugin)
+Vue.component('z-tabs',ZTabs)
+Vue.component('z-tabs-head',ZTabsHead)
+Vue.component('z-tabs-item',ZTabsItem)
+Vue.component('z-tabs-body',ZTabsBody)
+Vue.component('z-tabs-pane',ZTabsPane)
 
 new Vue({
   el: '#app',
@@ -33,7 +43,8 @@ new Vue({
     loading1: false,
     loading2: true,
     loading3: false,
-    message: 'hi'
+    message: 'hi',
+    selectedTab: 'sports'
   },
   methods: {
     inputChange(e) {
