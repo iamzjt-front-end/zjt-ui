@@ -50,7 +50,28 @@ new Vue({
     inputChange(e) {
       console.log(e);
     },
-    showToast() {
+    showToast1() {
+      this.showToast('top')
+    },
+    showToast2() {
+      this.showToast('middle')
+    },
+    showToast3() {
+      this.showToast('bottom')
+    },
+    showToast4() {
+      this.showToast('top-left')
+    },
+    showToast5() {
+      this.showToast('top-right')
+    },
+    showToast6() {
+      this.showToast('bottom-left')
+    },
+    showToast7() {
+      this.showToast('bottom-right')
+    },
+    showToast(position) {
       this.$toast(`你好啊, 你的智商余额为${parseInt(Math.random() * 100)}`, {
         closeButton: {
           text: '关闭',
@@ -60,7 +81,7 @@ new Vue({
         },
         autoClose: true,
         enableHtml: true,
-        position: 'top',
+        position,
         autoCloseDelay: 3
       });
     }

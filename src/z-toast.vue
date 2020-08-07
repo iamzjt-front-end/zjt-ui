@@ -1,13 +1,15 @@
 <template>
-  <div class="z-toast" ref="wrapper" :class="toastClasses">
-    <div class="message">
-      <slot v-if="!enableHtml"></slot>
-      <div v-else v-html="$slots.default[0]"></div>
-    </div>
-    <div class="line" ref="line"></div>
-    <span class="close" v-if="closeButton" @click="onClickClose">
+  <div class="wrapper" :class="toastClasses">
+    <div class="z-toast" ref="toast">
+      <div class="message">
+        <slot v-if="!enableHtml"></slot>
+        <div v-else v-html="$slots.default[0]"></div>
+      </div>
+      <div class="line" ref="line"></div>
+      <span class="close" v-if="closeButton" @click="onClickClose">
       {{ closeButton.text }}
     </span>
+    </div>
   </div>
 </template>
 
@@ -40,7 +42,7 @@ export default {
       type: String,
       default: 'top',
       validator(value) {
-        return ['top', 'middle', 'bottom', 'left', 'right'].indexOf(value) >= 0
+        return ['top', 'middle', 'bottom', 'top-left', 'top-right', 'bottom-left', 'bottom-right'].indexOf(value) >= 0
       }
     }
   },
@@ -65,7 +67,7 @@ export default {
     },
     updateStyles() {
       this.$nextTick(() => {
-        this.$refs.line.style.height = `${this.$refs.wrapper.getBoundingClientRect().height}px`
+        this.$refs.line.style.height = `${this.$refs.toast.getBoundingClientRect().height}px`
       })
     },
     close() {
@@ -87,18 +89,143 @@ export default {
 $font-size: 14px;
 $toast-min-height: 40px;
 $toast-bg: rgba(0, 0, 0, 0.75);
-@keyframes fade-in {
+$animation-duration: 1s;
+@keyframes slide-down {
   0% {
     opacity: 0;
-    transform: translateY(0%);
+    transform: translateY(-100%);
   }
   100% {
     opacity: 1;
-    transform: translateY(100%);
+    transform: translateY(0%);
   }
 }
-.z-toast {
+@keyframes slide-down-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-down-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@keyframes slide-up-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes slide-up-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.wrapper {
   position: fixed;
+  transform: translateX(-50%);
+
+  &.position-top {
+    top: 1%;
+    left: 50%;
+    .z-toast {
+      animation: slide-down $animation-duration;
+    }
+  }
+
+  &.position-top-left {
+    top: 1%;
+    left: 0.25%;
+    transform: translateX(0%);
+    .z-toast {
+      animation: slide-down-left $animation-duration;
+    }
+  }
+
+  &.position-top-right {
+    top: 1%;
+    right: 0.25%;
+    transform: translateX(0%);
+    .z-toast {
+      animation: slide-down-right $animation-duration;
+    }
+  }
+
+  &.position-middle {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    .z-toast {
+      animation: fade-in $animation-duration;
+    }
+  }
+
+  &.position-bottom {
+    bottom: 1%;
+    left: 50%;
+    .z-toast {
+      animation: slide-up $animation-duration;
+    }
+  }
+
+  &.position-bottom-left {
+    bottom: 1%;
+    left: 0.25%;
+    transform: translateX(0%);
+    .z-toast {
+      animation: slide-up-left $animation-duration;
+    }
+  }
+
+  &.position-bottom-right {
+    bottom: 1%;
+    right: 0.25%;
+    transform: translateX(0%);
+    .z-toast {
+      animation: slide-up-right $animation-duration;
+    }
+  }
+}
+
+.z-toast {
   display: flex;
   align-items: center;
   font-size: $font-size;
@@ -109,7 +236,6 @@ $toast-bg: rgba(0, 0, 0, 0.75);
   border-radius: 4px;
   background: $toast-bg;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.5);
-  animation: fade-in 1s;
 
   .message {
     padding: 8px 0;
@@ -125,35 +251,6 @@ $toast-bg: rgba(0, 0, 0, 0.75);
     height: 100%;
     border-left: 1px solid #888;
     margin-left: 16px;
-  }
-
-  &.position-top {
-    top: 1%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &.position-middle {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-  }
-
-  &.position-bottom {
-    bottom: 1%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  &.position-left {
-    top: 1%;
-    left: 1%;
-  }
-
-  &.position-right {
-    top: 1%;
-    right: 1%;
   }
 }
 </style>
