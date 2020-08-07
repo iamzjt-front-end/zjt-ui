@@ -31,11 +31,11 @@ Vue.component('z-content', ZContent)
 Vue.component('z-footer', ZFooter)
 Vue.component('z-toast', ZToast)
 Vue.use(plugin)
-Vue.component('z-tabs',ZTabs)
-Vue.component('z-tabs-head',ZTabsHead)
-Vue.component('z-tabs-item',ZTabsItem)
-Vue.component('z-tabs-body',ZTabsBody)
-Vue.component('z-tabs-pane',ZTabsPane)
+Vue.component('z-tabs', ZTabs)
+Vue.component('z-tabs-head', ZTabsHead)
+Vue.component('z-tabs-item', ZTabsItem)
+Vue.component('z-tabs-body', ZTabsBody)
+Vue.component('z-tabs-pane', ZTabsPane)
 
 new Vue({
   el: '#app',
@@ -52,16 +52,19 @@ new Vue({
     },
     showToast() {
       this.$toast('你好啊', {
-        // closeButton: {
-        //   text: '知道了',
-        //   callback() {
-        //     console.log('用户说他知道了')
-        //   }
-        // }
-        // enableHtml: true
+        closeButton: {
+          text: '关闭',
+          callback() {
+            console.log('用户已经关闭了')
+          }
+        },
+        autoClose: true,
+        enableHtml: true,
+        position: 'right',
       });
     }
   },
   created() {
+
   }
 })
