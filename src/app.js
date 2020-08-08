@@ -50,7 +50,7 @@ new Vue({
     loading2: true,
     loading3: false,
     message: 'hi',
-    selectedTab: 'tab3'
+    selectedTab: '2'
   },
   methods: {
     inputChange(e) {
