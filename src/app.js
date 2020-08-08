@@ -18,6 +18,8 @@ import ZTabsItem from './z-tabs-item'
 import ZTabsBody from './z-tabs-body'
 import ZTabsPane from './z-tabs-pane'
 import ZPopover from './z-popover'
+import ZCollapse from './z-collapse'
+import ZCollapseItem from './z-collapse-item'
 
 Vue.component('z-button', ZButton)
 Vue.component('z-icon', ZIcon)
@@ -38,6 +40,8 @@ Vue.component('z-tabs-item', ZTabsItem)
 Vue.component('z-tabs-body', ZTabsBody)
 Vue.component('z-tabs-pane', ZTabsPane)
 Vue.component('z-popover', ZPopover)
+Vue.component('z-collapse', ZCollapse)
+Vue.component('z-collapse-item', ZCollapseItem)
 
 new Vue({
   el: '#app',
