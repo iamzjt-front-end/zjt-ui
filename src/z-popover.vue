@@ -31,23 +31,28 @@ export default {
     positionContent() {
       const {contentWrapper, triggerWrapper} = this.$refs
       document.body.appendChild(contentWrapper)
-      let {width, height, top, left} = triggerWrapper.getBoundingClientRect()
-      if (this.position === 'top') {
-        contentWrapper.style.left = left + window.scrollX + 'px'
-        contentWrapper.style.top = top + window.scrollY + 'px'
-      } else if (this.position === 'bottom') {
-        contentWrapper.style.left = left + window.scrollX + 'px'
-        contentWrapper.style.top = top + window.scrollY + height + 'px'
-      } else if (this.position === 'left') {
-        contentWrapper.style.left = left + window.scrollX + 'px'
-        let {height: height2} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.top = top -
-            Math.abs(height - height2) / 2  + window.scrollY+ 'px'
-      } else if (this.position === 'right') {
-        contentWrapper.style.left = left + window.scrollX + width + 'px'
-        let {height: height2} = contentWrapper.getBoundingClientRect()
-        contentWrapper.style.top = top -
-            Math.abs(height - height2) / 2  + window.scrollY+ 'px'      }
+      const {width, height, top, left} = triggerWrapper.getBoundingClientRect()
+      const {height: height2} = contentWrapper.getBoundingClientRect()
+      let positions = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX,
+        },
+        bottom: {
+          top: top + window.scrollY + height,
+          left: left + window.scrollX,
+        },
+        left: {
+          top: top - Math.abs(height - height2) / 2 + window.scrollY,
+          left: left + window.scrollX,
+        },
+        right: {
+          top: top - Math.abs(height - height2) / 2 + window.scrollY,
+          left: left + window.scrollX + width,
+        }
+      }
+      contentWrapper.style.top = positions[this.position].top + 'px'
+      contentWrapper.style.left = positions[this.position].left + 'px'
     },
     onClickDocument(e) {
       if (this.$refs.popover &&
@@ -120,14 +125,17 @@ $bgc: #fff;
   &.position-top {
     transform: translateY(-100%);
     margin-top: -10px;
+
     &::before,
     &::after {
       left: 10px;
     }
+
     &::before {
       border-top-color: $border-color;
       top: 100%;
     }
+
     &::after {
       border-top-color: #fff;
       top: calc(100% - 1px);
@@ -137,14 +145,17 @@ $bgc: #fff;
   // 下
   &.position-bottom {
     margin-top: 10px;
+
     &::before,
     &::after {
       left: 10px;
     }
+
     &::before {
       border-bottom-color: $border-color;
       bottom: 100%;
     }
+
     &::after {
       border-bottom-color: #fff;
       bottom: calc(100% - 1px);
@@ -155,15 +166,18 @@ $bgc: #fff;
   &.position-left {
     transform: translateX(-100%);
     margin-left: -10px;
+
     &::before,
     &::after {
       transform: translateY(-50%);
       top: 50%;
     }
+
     &::before {
       border-left-color: $border-color;
       left: 100%;
     }
+
     &::after {
       border-left-color: #fff;
       left: calc(100% - 1px);
@@ -173,15 +187,18 @@ $bgc: #fff;
   // 右
   &.position-right {
     margin-left: 10px;
+
     &::before,
     &::after {
       transform: translateY(-50%);
       top: 50%;
     }
+
     &::before {
       border-right-color: $border-color;
       right: 100%;
     }
+
     &::after {
       border-right-color: #fff;
       right: calc(100% - 1px);
