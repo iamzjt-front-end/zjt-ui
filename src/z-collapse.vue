@@ -6,12 +6,16 @@
 
 <script>
 import Vue from 'vue'
+
 export default {
   name: "z-collapse",
   props: {
     single: {
       type: Boolean,
       default: false
+    },
+    selected: {
+      type: String
     }
   },
   data() {
@@ -19,13 +23,14 @@ export default {
       eventBus: new Vue
     }
   },
-  provide () {
-    if (this.single) {
-      return {
-        eventBus: this.eventBus
-      }
+  provide() {
+    return {
+      eventBus: this.eventBus
     }
   },
+  mounted() {
+    this.eventBus.$emit('update:selected', this.selected)
+  }
 }
 </script>
 
