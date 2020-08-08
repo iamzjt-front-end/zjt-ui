@@ -1,8 +1,8 @@
 <template>
-  <div class="z-popover" @click.stop="toggle" ref="popover">
+  <div class="z-popover" ref="popover">
     <div ref="contentWrapper" class="content-wrapper" v-if="visible"
          :class="{[`position-${position}`]: true}">
-      <slot name="content"></slot>
+      <slot name="content" :close="close"></slot>
     </div>
     <span ref=triggerWrapper style="display: inline-block">
       <slot></slot>
@@ -15,16 +15,39 @@ export default {
   name: "z-popover",
   data() {
     return {
-      visible: false,
-      default: 'top',
-      validator(value) {
-        return ['top', 'bottom', 'left', 'bottom'].indexOf(value) >= 0
-      }
+      visible: false
     }
   },
   props: {
     position: {
-      type: String
+      type: String,
+      default: 'top',
+      validator(value) {
+        return ['top', 'bottom', 'left', 'right'].indexOf(value) >= 0
+      }
+    },
+    trigger: {
+      type: String,
+      default: 'click',
+      validator(value) {
+        return ['click', 'hover'].indexOf(value) >= 0
+      }
+    }
+  },
+  mounted() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.addEventListener('click', this.toggle)
+    } else {
+      this.$refs.popover.addEventListener('mouseenter', this.open)
+      this.$refs.popover.addEventListener('mouseleave', this.close)
+    }
+  },
+  destroyed() {
+    if (this.trigger === 'click') {
+      this.$refs.popover.removeEventListener('click', this.toggle)
+    } else {
+      this.$refs.popover.removeEventListener('mouseenter', this.open)
+      this.$refs.popover.removeEventListener('mouseleave', this.close)
     }
   },
   methods: {
@@ -93,7 +116,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$border-color: #ccc;
+$border-color: #999;
 $border-radius: 4px;
 $bgc: #fff;
 .z-popover {
@@ -134,11 +157,13 @@ $bgc: #fff;
     &::before {
       border-top-color: $border-color;
       top: 100%;
+      border-bottom: none;
     }
 
     &::after {
       border-top-color: #fff;
       top: calc(100% - 1px);
+      border-bottom: none;
     }
   }
 
@@ -154,11 +179,13 @@ $bgc: #fff;
     &::before {
       border-bottom-color: $border-color;
       bottom: 100%;
+      border-top: none;
     }
 
     &::after {
       border-bottom-color: #fff;
       bottom: calc(100% - 1px);
+      border-top: none;
     }
   }
 
@@ -176,11 +203,13 @@ $bgc: #fff;
     &::before {
       border-left-color: $border-color;
       left: 100%;
+      border-right: none;
     }
 
     &::after {
       border-left-color: #fff;
       left: calc(100% - 1px);
+      border-right: none;
     }
   }
 
@@ -197,11 +226,13 @@ $bgc: #fff;
     &::before {
       border-right-color: $border-color;
       right: 100%;
+      border-left: none;
     }
 
     &::after {
       border-right-color: #fff;
       right: calc(100% - 1px);
+      border-left: none;
     }
   }
 
