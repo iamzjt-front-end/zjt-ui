@@ -3,7 +3,7 @@
     <div ref="contentWrapper" class="content-wrapper" v-if="visible">
       <slot name="content"></slot>
     </div>
-    <span ref=triggerWrapper>
+    <span ref=triggerWrapper style="display: inline-block">
       <slot></slot>
     </span>
   </div>
@@ -27,6 +27,10 @@ export default {
     onClickDocument(e) {
       if (this.$refs.popover &&
           (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))
+      ) { return }
+      if (this.$refs.contentWrapper &&
+          (this.$refs.contentWrapper === e.target ||
+              this.$refs.contentWrapper.contains(e.target))
       ) { return }
       this.close()
     },
@@ -55,6 +59,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$border-color: #fff;
+$border-radius: 4px;
+$bgc: #fff;
 .z-popover {
   display: inline-block;
   vertical-align: top;
@@ -62,9 +69,35 @@ export default {
 
 .content-wrapper {
   position: absolute;
-  border: 1px solid red;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  transform: translateY(-150%);
-}
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  transform: translateY(-100%);
+  margin-top: -10px;
+  padding: 0.5em 1em;
+  max-width: 20em;
+  word-break: break-all;
+  background-color: $bgc;
 
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    position: absolute;
+    left: 10px;
+  }
+
+  &::before {
+    border-top-color: $border-color;
+    top: 100%;
+  }
+
+  &::after {
+    border-top-color: #fff;
+    top: calc(100% - 1px);
+  }
+}
 </style>
