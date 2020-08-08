@@ -32,18 +32,28 @@ export default {
       eventBus: this.eventBus
     }
   },
-  created() {
+  methods: {
+    checkChildren() {
+      if (this.$children.length === 0) {
+        console && console.warn &&
+        console.warn('z-tabs的子组件应该是z-tabs-head和z-tabs-body, 但你没有写子组件')
+      }
+    },
+    selectTab() {
+      this.$children.forEach(vm => {
+        if (vm.$options.name === 'z-tabs-head') {
+          vm.$children.forEach(childVm => {
+            if (childVm.$options.name === 'z-tabs-item' && childVm.name === this.selected) {
+              this.eventBus.$emit('update:selected', this.selected, childVm)
+            }
+          })
+        }
+      })
+    }
   },
   mounted() {
-    this.$children.forEach(vm => {
-      if(vm.$options.name === 'z-tabs-head') {
-        vm.$children.forEach(childVm => {
-          if(childVm.$options.name === 'z-tabs-item' && childVm.name === this.selected) {
-            this.eventBus.$emit('update:selected', this.selected, childVm)
-          }
-        })
-      }
-    })
+    this.checkChildren()
+    this.selectTab()
   }
 }
 </script>

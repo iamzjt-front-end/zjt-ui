@@ -27,9 +27,7 @@ export default {
     onClickDocument(e) {
       if (this.$refs.popover &&
           (this.$refs.popover === e.target || this.$refs.popover.contains(e.target))
-      ) {
-        return
-      }
+      ) { return }
       this.close()
     },
     open() {
