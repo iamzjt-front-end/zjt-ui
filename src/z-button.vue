@@ -53,6 +53,8 @@ export default {
   justify-content: center;
   align-items: center;
   vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     border-color: var(--border-color-hover);
