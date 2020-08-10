@@ -44,214 +44,186 @@
 </head>
 <body>
 <div id="app" style="padding: 100px;">
-  <z-collapse :selected.sync="selectedTab">
-    <z-collapse-item title="标题1" name="1">内容1</z-collapse-item>
-    <z-collapse-item title="标题2" name="2">内容2</z-collapse-item>
-    <z-collapse-item title="标题3" name="3">内容3</z-collapse-item>
-  </z-collapse>
-  {{selectedTab}}
+<!--  <z-collapse :selected.sync="selectedTab" single>-->
+<!--    <z-collapse-item title="标题 ①" name="1">内容...</z-collapse-item>-->
+<!--    <z-collapse-item title="标题 ②" name="2">内容...</z-collapse-item>-->
+<!--    <z-collapse-item title="标题 ③" name="3">内容...</z-collapse-item>-->
+<!--  </z-collapse>-->
+<!--  {{ selectedTab }}-->
 
 
+<!--    <div style="padding-left: 100px; padding-top: 100px">-->
+<!--      <z-popover position="top">-->
+<!--        <template slot="content" slot-scope="{close}">-->
+<!--          <div>content of z-popover</div>-->
+<!--          <z-button @click="close">关闭</z-button>-->
+<!--        </template>-->
+<!--        <z-button>top</z-button>-->
+<!--      </z-popover>-->
+<!--      <z-popover position="bottom">-->
+<!--        <template slot="content">-->
+<!--          <div>content of z-popover</div>-->
+<!--        </template>-->
+<!--        <z-button>bottom</z-button>-->
+<!--      </z-popover>-->
+<!--      <z-popover position="left">-->
+<!--        <template slot="content">-->
+<!--          <div>content of z-popover</div>-->
+<!--        </template>-->
+<!--        <z-button>left</z-button>-->
+<!--      </z-popover>-->
+<!--      <z-popover position="right">-->
+<!--        <template slot="content">-->
+<!--          <div>content of z-popover</div>-->
+<!--        </template>-->
+<!--        <z-button>right</z-button>-->
+<!--      </z-popover>-->
+<!--    </div>-->
+
+<!--    <div style="padding-left: 100px; padding-top: 100px">-->
+<!--      <z-popover position="top" trigger="hover">-->
+<!--        <template slot="content">-->
+<!--          <div>content of z-popover</div>-->
+<!--        </template>-->
+<!--        <z-button>top</z-button>-->
+<!--      </z-popover>-->
+<!--      <z-popover position="bottom" trigger="hover">-->
+<!--        <template slot="content">-->
+<!--          <div>content of z-popover</div>-->
+<!--        </template>-->
+<!--        <z-button>bottom</z-button>-->
+<!--      </z-popover>-->
+<!--      <z-popover position="left" trigger="hover">-->
+<!--        <template slot="content">-->
+<!--          <div>content of z-popover</div>-->
+<!--        </template>-->
+<!--        <z-button>left</z-button>-->
+<!--      </z-popover>-->
+<!--      <z-popover position="right" trigger="hover">-->
+<!--        <template slot="content">-->
+<!--          <div>content of z-popover</div>-->
+<!--        </template>-->
+<!--        <z-button>right</z-button>-->
+<!--      </z-popover>-->
+<!--    </div>-->
+
+<!--      <z-tabs :selected.sync="selectedTab">-->
+<!--        <z-tabs-head>-->
+<!--          <template slot="actions">-->
+<!--            <z-button>设置</z-button>-->
+<!--          </template>-->
+<!--          <z-tabs-item name="tab1" disabled>-->
+<!--            Tab 1-->
+<!--          </z-tabs-item>-->
+<!--          <z-tabs-item name="tab2">-->
+<!--            Tab 2-->
+<!--          </z-tabs-item>-->
+<!--          <z-tabs-item name="tab3">-->
+<!--            Tab 3-->
+<!--          </z-tabs-item>-->
+<!--        </z-tabs-head>-->
+<!--        <z-tabs-body>-->
+<!--          <z-tabs-pane name="tab1">-->
+<!--            content of Tab Pane 1-->
+<!--          </z-tabs-pane>-->
+<!--          <z-tabs-pane name="tab2">-->
+<!--            content of Tab Pane 2-->
+<!--          </z-tabs-pane>-->
+<!--          <z-tabs-pane name="tab3">-->
+<!--            content of Tab Pane 3-->
+<!--          </z-tabs-pane>-->
+<!--        </z-tabs-body>-->
+<!--      </z-tabs>-->
+
+      <div style="margin: 100px 200px;">
+        <button @click="showToast1">top</button>
+        <button @click="showToast2">middle</button>
+        <button @click="showToast3">bottom</button>
+        <button @click="showToast4">top-left</button>
+        <button @click="showToast5">top-right</button>
+        <button @click="showToast6">bottom-left</button>
+        <button @click="showToast7">bottom-right</button>
+      </div>
 
 
+<!--    <z-layout style="height: 100vh">-->
+<!--      <z-sider>sider</z-sider>-->
+<!--      <z-layout>-->
+<!--        <z-header>header</z-header>-->
+<!--        <z-content>content</z-content>-->
+<!--        <z-footer>footer</z-footer>-->
+<!--      </z-layout>-->
+<!--    </z-layout>-->
 
+<!--    <z-row>-->
+<!--      <z-col span="24"-->
+<!--             :ipad="{span: 12}"-->
+<!--             :pc="{span: 8}">-->
+<!--        <div class="demo"></div>-->
+<!--      </z-col>-->
+<!--      <z-col span="24"-->
+<!--             :ipad="{span: 12}"-->
+<!--             :pc="{span: 8}">-->
+<!--        <div class="demo"></div>-->
+<!--      </z-col>-->
+<!--      <z-col span="24"-->
+<!--             :ipad="{span: 12}"-->
+<!--             :pc="{span: 8}">-->
+<!--        <div class="demo"></div>-->
+<!--      </z-col>-->
+<!--      <z-col span="24"-->
+<!--             :ipad="{span: 12}"-->
+<!--             :pc="{span: 8}">-->
+<!--        <div class="demo"></div>-->
+<!--      </z-col>-->
+<!--      <z-col span="24"-->
+<!--             :ipad="{span: 12}"-->
+<!--             :pc="{span: 8}">-->
+<!--        <div class="demo"></div>-->
+<!--      </z-col>-->
+<!--      <z-col span="24"-->
+<!--             :ipad="{span: 12}"-->
+<!--             :pc="{span: 8}">-->
+<!--        <div class="demo"></div>-->
+<!--      </z-col>-->
+<!--    </z-row>-->
 
+<!--        <div class="box">-->
+<!--          <z-input value="张三" disabled></z-input>-->
+<!--          <z-input value="李四" readonly></z-input>-->
+<!--          <z-input value="王五"></z-input>-->
+<!--        </div>-->
 
+<!--        <div class="box">-->
+<!--          <z-input value="王" @change="inputChange"></z-input>-->
+<!--        </div>-->
 
+<!--        <div class="box">-->
+<!--          <z-input value="王" error="姓名不能少于两个字"></z-input>-->
+<!--        </div>-->
 
+<!--        <div class="box">-->
+<!--          <z-input v-model="message"></z-input>-->
+<!--          <p>{{ message }}</p>-->
+<!--          <button @click="message+=1">+1</button>-->
+<!--        </div>-->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!--  <div style="padding-left: 100px; padding-top: 100px">-->
-  <!--    <z-popover position="top">-->
-  <!--      <template slot="content" slot-scope="{close}">-->
-  <!--        <div>content of z-popover<a href="http://qq.com">看新网</a></div>-->
-  <!--        <z-button @click="close">关闭</z-button>-->
-  <!--      </template>-->
-  <!--      <z-button>top</z-button>-->
-  <!--    </z-popover>-->
-  <!--    <z-popover position="bottom">-->
-  <!--      <template slot="content">-->
-  <!--        <div>content of z-popover<z-button>关闭</z-button></div>-->
-  <!--      </template>-->
-  <!--      <z-button>bottom</z-button>-->
-  <!--    </z-popover>-->
-  <!--    <z-popover position="left">-->
-  <!--      <template slot="content">-->
-  <!--        <div>content of z-popover</div>-->
-  <!--      </template>-->
-  <!--      <z-button>left</z-button>-->
-  <!--    </z-popover>-->
-  <!--    <z-popover position="right">-->
-  <!--      <template slot="content">-->
-  <!--        <div>content of z-popover</div>-->
-  <!--      </template>-->
-  <!--      <z-button>right</z-button>-->
-  <!--    </z-popover>-->
-  <!--  </div>-->
-  <!--  <div style="padding-left: 100px; padding-top: 100px">-->
-  <!--    <z-popover position="top" trigger="hover">-->
-  <!--      <template slot="content">-->
-  <!--        <div>content of z-popover</div>-->
-  <!--      </template>-->
-  <!--      <z-button>top</z-button>-->
-  <!--    </z-popover>-->
-  <!--    <z-popover position="bottom" trigger="hover">-->
-  <!--      <template slot="content">-->
-  <!--        <div>content of z-popover</div>-->
-  <!--      </template>-->
-  <!--      <z-button>bottom</z-button>-->
-  <!--    </z-popover>-->
-  <!--    <z-popover position="left" trigger="hover">-->
-  <!--      <template slot="content">-->
-  <!--        <div>content of z-popover</div>-->
-  <!--      </template>-->
-  <!--      <z-button>left</z-button>-->
-  <!--    </z-popover>-->
-  <!--    <z-popover position="right" trigger="hover">-->
-  <!--      <template slot="content">-->
-  <!--        <div>content of z-popover <a href="http://qq.com">看新网</a></div>-->
-  <!--      </template>-->
-  <!--      <z-button>right</z-button>-->
-  <!--    </z-popover>-->
-  <!--  </div>-->
-
-  <!--    <z-tabs :selected.sync="selectedTab">-->
-  <!--      <z-tabs-head>-->
-  <!--        <template slot="actions">-->
-  <!--          <z-button>设置</z-button>-->
-  <!--        </template>-->
-  <!--        <z-tabs-item name="tab1" disabled>-->
-  <!--          &lt;!&ndash;<z-icon name="settings"></z-icon>&ndash;&gt;-->
-  <!--          Tab 1-->
-  <!--        </z-tabs-item>-->
-  <!--        <z-tabs-item name="tab2">-->
-  <!--          Tab 2-->
-  <!--        </z-tabs-item>-->
-  <!--        <z-tabs-item name="tab3">-->
-  <!--          Tab 3-->
-  <!--        </z-tabs-item>-->
-  <!--      </z-tabs-head>-->
-  <!--      <z-tabs-body>-->
-  <!--        <z-tabs-pane name="tab1">-->
-  <!--          content of Tab Pane 1-->
-  <!--        </z-tabs-pane>-->
-  <!--        <z-tabs-pane name="tab2">-->
-  <!--          content of Tab Pane 2-->
-  <!--        </z-tabs-pane>-->
-  <!--        <z-tabs-pane name="tab3">-->
-  <!--          content of Tab Pane 3-->
-  <!--        </z-tabs-pane>-->
-  <!--      </z-tabs-body>-->
-  <!--    </z-tabs>-->
-
-  <!--    <div style="margin: 100px 200px;">-->
-  <!--      <button @click="showToast1">top</button>-->
-  <!--      <button @click="showToast2">middle</button>-->
-  <!--      <button @click="showToast3">bottom</button>-->
-  <!--      <button @click="showToast4">top-left</button>-->
-  <!--      <button @click="showToast5">top-right</button>-->
-  <!--      <button @click="showToast6">bottom-left</button>-->
-  <!--      <button @click="showToast7">bottom-right</button>-->
-  <!--    </div>-->
-
-
-  <!--  <z-layout style="height: 100vh">-->
-  <!--    <z-sider>sider</z-sider>-->
-  <!--    <z-layout>-->
-  <!--      <z-header>header</z-header>-->
-  <!--      <z-content>content</z-content>-->
-  <!--      <z-footer>footer</z-footer>-->
-  <!--    </z-layout>-->
-  <!--  </z-layout>-->
-
-  <!--  <z-row>-->
-  <!--    <z-col span="24"-->
-  <!--           :ipad="{span: 12}"-->
-  <!--           :pc="{span: 8}">-->
-  <!--      <div class="demo"></div>-->
-  <!--    </z-col>-->
-  <!--    <z-col span="24"-->
-  <!--           :ipad="{span: 12}"-->
-  <!--           :pc="{span: 8}">-->
-  <!--      <div class="demo"></div>-->
-  <!--    </z-col>-->
-  <!--    <z-col span="24"-->
-  <!--           :ipad="{span: 12}"-->
-  <!--           :pc="{span: 8}">-->
-  <!--      <div class="demo"></div>-->
-  <!--    </z-col>-->
-  <!--    <z-col span="24"-->
-  <!--           :ipad="{span: 12}"-->
-  <!--           :pc="{span: 8}">-->
-  <!--      <div class="demo"></div>-->
-  <!--    </z-col>-->
-  <!--    <z-col span="24"-->
-  <!--           :ipad="{span: 12}"-->
-  <!--           :pc="{span: 8}">-->
-  <!--      <div class="demo"></div>-->
-  <!--    </z-col>-->
-  <!--    <z-col span="24"-->
-  <!--           :ipad="{span: 12}"-->
-  <!--           :pc="{span: 8}">-->
-  <!--      <div class="demo"></div>-->
-  <!--    </z-col>-->
-  <!--  </z-row>-->
-
-  <!--      <div class="box">-->
-  <!--        <z-input value="张三" disabled></z-input>-->
-  <!--        <z-input value="李四" readonly></z-input>-->
-  <!--        <z-input value="王五"></z-input>-->
-  <!--      </div>-->
-
-  <!--      <div class="box">-->
-  <!--        <z-input value="王" @change="inputChange"></z-input>-->
-  <!--      </div>-->
-
-  <!--      <div class="box">-->
-  <!--        <z-input value="王" error="姓名不能少于两个字"></z-input>-->
-  <!--      </div>-->
-
-  <!--      <div class="box">-->
-  <!--        <z-input v-model="message"></z-input>-->
-  <!--        <p>{{ message }}</p>-->
-  <!--        <button @click="message+=1">+1</button>-->
-  <!--      </div>-->
-
-  <!--      <div class="box">-->
-  <!--        <z-button :loading="loading1"-->
-  <!--                  @click="loading1 = !loading1">按钮-->
-  <!--        </z-button>-->
-  <!--        <z-button icon="settings" :loading="loading2"-->
-  <!--                  @click="loading2 = !loading2">按钮-->
-  <!--        </z-button>-->
-  <!--        <z-button icon="settings" icon-position="left" :loading="loading3"-->
-  <!--                  @click="loading3 = !loading3">按钮-->
-  <!--        </z-button>-->
-  <!--        <z-button-group>-->
-  <!--          <z-button icon="left" icon-position="left">上一页</z-button>-->
-  <!--          <z-button>更多</z-button>-->
-  <!--          <z-button icon="right">下一页</z-button>-->
-  <!--        </z-button-group>-->
-  <!--      </div>-->
+<!--        <div class="box">-->
+<!--          <z-button :loading="loading1"-->
+<!--                    @click="loading1 = !loading1">按钮-->
+<!--          </z-button>-->
+<!--          <z-button icon="settings" :loading="loading2"-->
+<!--                    @click="loading2 = !loading2">按钮-->
+<!--          </z-button>-->
+<!--          <z-button icon="settings" icon-position="left" :loading="loading3"-->
+<!--                    @click="loading3 = !loading3">按钮-->
+<!--          </z-button>-->
+<!--          <z-button-group>-->
+<!--            <z-button icon="left" icon-position="left">上一页</z-button>-->
+<!--            <z-button>更多</z-button>-->
+<!--            <z-button icon="right">下一页</z-button>-->
+<!--          </z-button-group>-->
+<!--        </div>-->
 </div>
 <script src="./src/app.js"></script>
 </body>

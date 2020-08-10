@@ -1,17 +1,23 @@
 <template>
   <div class="z-collapse-item">
     <div class="title" @click="toggle">
-      {{title}}
+      {{ title }}
     </div>
-    <div class="content" v-if="open">
-      <slot></slot>
-    </div>
+    <z-spread>
+      <div class="content" ref="content" v-if="open">
+        <slot></slot>
+      </div>
+    </z-spread>
   </div>
 </template>
 
 <script>
+import ZSpread from './z-spread'
 export default {
   name: "z-collapse-item",
+  components: {
+    'z-spread': ZSpread
+  },
   props: {
     title: {
       type: String,
@@ -24,31 +30,25 @@ export default {
   },
   data() {
     return {
-      open: false
+      open: false,
     }
   },
   inject: ['eventBus'],
   mounted() {
-    this.eventBus && this.eventBus.$on('update:selected', name => {
-      if(name !== this.name) {
-        this.close()
-      }else {
-        this.show()
+    this.eventBus && this.eventBus.$on('update:selected', names => {
+      if (names.indexOf(this.name) >= 0) {
+        this.open = true
+      } else {
+        this.open = false
       }
     })
   },
   methods: {
-    close() {
-      this.open = false
-    },
-    show() {
-      this.open = true
-    },
     toggle() {
-      if(this.open) {
-        this.open = false
+      if (this.open) {
+        this.eventBus && this.eventBus.$emit('update:removeSelected', this.name)
       } else {
-        this.eventBus && this.eventBus.$emit('update:selected', this.name)
+        this.eventBus && this.eventBus.$emit('update:addSelected', this.name)
       }
     }
   }
@@ -58,6 +58,7 @@ export default {
 <style lang="scss" scoped>
 $border-color: #ddd;
 $border-radius: 4px;
+$bgc: #e8e8e8;
 .z-collapse-item {
   > .title {
     border-bottom: 1px solid $border-color;
@@ -66,10 +67,11 @@ $border-radius: 4px;
     align-items: center;
     padding: 0 8px;
     cursor: pointer;
+    background-color: $bgc;
   }
 
   > .content {
-    padding: 8px;
+    padding: 20px;
     border-bottom: 1px solid $border-color;
   }
 
@@ -77,9 +79,11 @@ $border-radius: 4px;
     > .title:last-child {
       border-bottom: none;
     }
+
     > .content {
       border-bottom: none;
     }
   }
 }
+
 </style>

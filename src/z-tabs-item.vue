@@ -52,7 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$font-color: skyblue;
+$font-color: #20B2AA;
 $disabled-color: #999;
 .z-tabs-item {
   flex-shrink: 0;

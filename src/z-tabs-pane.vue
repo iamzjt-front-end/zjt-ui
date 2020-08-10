@@ -1,12 +1,19 @@
 <template>
-  <div class="z-tabs-pane" :class="classes" v-if="active">
-    <slot></slot>
-  </div>
+  <z-spread>
+    <div class="z-tabs-pane" :class="classes" v-if="active">
+      <slot></slot>
+    </div>
+  </z-spread>
 </template>
 
 <script>
+import ZSpread from './z-spread'
+
 export default {
   name: "z-tabs-pane",
+  components: {
+    'z-spread': ZSpread
+  },
   inject: ['eventBus'],
   data() {
     return {
@@ -40,7 +47,7 @@ export default {
 
 <style lang="scss" scoped>
 .z-tabs-pane {
-  padding: 1em;
+  padding: 3em 2em;
   &.active {
   }
 }

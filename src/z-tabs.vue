@@ -60,6 +60,5 @@ export default {
 
 <style lang="scss" scoped>
 .z-tabs {
-  width: 500px;
 }
 </style>

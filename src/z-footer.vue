@@ -12,6 +12,5 @@ name: "z-footer"
 
 <style scoped>
 .z-footer {
-
 }
 </style>

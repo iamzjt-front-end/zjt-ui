@@ -6,7 +6,7 @@
            @focus="$emit('focus', $event.target.value)"
            @blur="$emit('blur', $event.target.value)">
     <template v-if="error">
-      <icon the-name="error" class="icon-error"></icon>
+      <icon name="error" class="icon-error"></icon>
       <span class="error-message">{{ error }}</span>
     </template>
   </div>
@@ -44,7 +44,7 @@ $height: 32px;
 $border-color: #999;
 $border-color-hover: #666;
 $border-radius: 4px;
-$font-size: 12px;
+$font-size: 14px;
 $box-shadow-color: rgba(0, 0, 0, .5);
 $red: #F1452D;
 .wrapper {

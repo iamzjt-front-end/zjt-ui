@@ -12,6 +12,5 @@ export default {
 
 <style scoped>
   .z-header {
-
   }
 </style>

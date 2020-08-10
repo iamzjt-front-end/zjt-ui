@@ -15,12 +15,13 @@ export default {
       default: false
     },
     selected: {
-      type: String
+      type: Array
     }
   },
   data() {
     return {
-      eventBus: new Vue
+      eventBus: new Vue,
+      selectedArray: []
     }
   },
   provide() {
@@ -30,8 +31,22 @@ export default {
   },
   mounted() {
     this.eventBus.$emit('update:selected', this.selected)
-    this.eventBus.$on('update:selected', name => {
-      this.$emit('update:selected', name)
+    this.eventBus.$on('update:addSelected', name => {
+      this.selectedArray = JSON.parse(JSON.stringify(this.selected))
+      if (this.single) {
+        this.selectedArray = [name]
+      } else {
+        this.selectedArray.push(name)
+      }
+      this.eventBus.$emit('update:selected', this.selectedArray)
+      this.$emit('update:selected', this.selectedArray)
+    })
+    this.eventBus.$on('update:removeSelected', name => {
+      this.selectedArray = JSON.parse(JSON.stringify(this.selected))
+      let index = this.selectedArray.indexOf(name)
+      this.selectedArray.splice(index, 1)
+      this.eventBus.$emit('update:selected', this.selectedArray)
+      this.$emit('update:selected', this.selectedArray)
     })
   }
 }

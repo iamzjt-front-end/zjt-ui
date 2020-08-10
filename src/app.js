@@ -50,7 +50,7 @@ new Vue({
     loading2: true,
     loading3: false,
     message: 'hi',
-    selectedTab: '2'
+    selectedTab: 'tab3',
   },
   methods: {
     inputChange(e) {
@@ -82,7 +82,7 @@ new Vue({
         closeButton: {
           text: '关闭',
           callback() {
-            console.log('用户已经关闭了')
+            alert('这个是关闭后执行的回调函数')
           }
         },
         autoClose: true,
