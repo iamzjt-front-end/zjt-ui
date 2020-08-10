@@ -267,7 +267,7 @@ export default {
     .contentWrapper {
       width: 100%;
       min-height: 500px;
-      background-color: #FBDF51;
+      background-color: #F1F1F1;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -432,7 +432,7 @@ export default {
           }
 
           &:hover {
-            background-color: #FBDF51;
+            background-color: #fff;
             transform: translateY(-10px);
             box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.3);
           }
