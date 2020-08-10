@@ -1,4 +1,5 @@
 module.exports = {
+  base: '/zjt-ui/',
   title: 'ZJT UI',
   description: '从零开始的UI组件库',
   themeConfig: {
