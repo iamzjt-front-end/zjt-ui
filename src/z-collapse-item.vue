@@ -3,7 +3,7 @@
     <div class="title" @click="toggle">
       {{ title }}
     </div>
-    <z-spread>
+    <z-spread duration="350">
       <div class="content" ref="content" v-if="open">
         <slot></slot>
       </div>

@@ -23,7 +23,7 @@ export default {
     },
     autoCloseDelay: {
       type: Number,
-      default: 2
+      default: 3
     },
     closeButton: {
       type: Object,
@@ -162,6 +162,7 @@ $animation-duration: 0.88s;
 .wrapper {
   position: fixed;
   transform: translateX(-50%);
+  z-index: 30;
 
   &.position-top {
     top: 1%;

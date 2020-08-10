@@ -18,7 +18,30 @@ title: Spread - 展开动画
 
 ::: details 点击查看代码
 ```vue
+<template>
+  <z-button @click="show = !show">点击</z-button>
+  <z-spread>
+    <div class="example" v-if="show"></div>
+  </z-spread>
+</template>
 
+<script>
+import ZSpread from '../../../src/z-spread'
+import ZButton from '../../../src/z-button'
+
+export default {
+  name: 'spread-demo',
+  data() {
+    return {
+      show: false,
+    }
+  },
+  components: {
+    'z-spread': ZSpread,
+    'z-button': ZButton
+  },
+}
+</script>
 ```
 :::
 

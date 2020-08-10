@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <button @click="show = !show">点击</button>
+    <z-button @click="show = !show">点击</z-button>
     <z-spread>
       <div class="example" v-if="show"></div>
     </z-spread>
@@ -9,7 +9,7 @@
 
 <script>
 import ZSpread from '../../../src/z-spread'
-// import ZButton from '../../../src/z-button'
+import ZButton from '../../../src/z-button'
 
 export default {
   name: 'spread-demo',
@@ -20,7 +20,7 @@ export default {
   },
   components: {
     'z-spread': ZSpread,
-    // 'z-button': ZButton
+    'z-button': ZButton
   },
 }
 </script>
@@ -30,7 +30,7 @@ $bg-yellow: #FBDF51;
 .container {
   max-width: 800px;
   margin: 30px auto;
-  height: 135px;
+  height: 150px;
   border-radius: 4px;
   box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
   padding: 15px;

@@ -1,106 +1,296 @@
 <template>
-  <button class="z-button" :class=[`icon-${iconPosition}`]
-          @click="$emit('click')">
-    <z-icon v-if="icon && !loading" :name="icon" class="icon"></z-icon>
-    <z-icon v-if="loading" class="loading icon" name="loading"></z-icon>
-    <div class="content">
-      <slot></slot>
-    </div>
+  <button class="z-button" :disabled="disabled" :class="styleClass" @click="handleClick">
+    <span v-if="icon">
+      <z-icon :name="icon"></z-icon>
+    </span>
+    <slot></slot>
   </button>
 </template>
 
 <script>
+import ZIcon from './z-icon'
 export default {
   name: "z-button",
-  // props: ['icon', 'iconPosition']
+  components: {
+    'z-icon': ZIcon
+  },
   props: {
-    icon: {},
-    loading: {
+    type: {
+      type: String,
+      default: "",
+      validator: value => {
+        return ["", "primary", "success", "warning", "danger", "info"].includes(value);
+      }
+    },
+    disabled: {
       type: Boolean,
       default: false
     },
-    iconPosition: {
+    round: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
       type: String,
-      default: 'right',
-      validator(value) {
-        // 属性检查器
-        return !(value !== 'left' && value !== 'right');
-      }
+      default: ""
+    }
+  },
+  computed: {
+    styleClass() {
+      return {
+        [`z-button--${this.type}`]: this.type,
+        ["is-round"]: this.round,
+        "is-disabled": this.disabled
+      };
+    }
+  },
+  methods: {
+    handleClick() {
+      this.$emit("click");
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+.z-button {
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  -webkit-appearance: none;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  font-weight: 500;
+  padding: 12px 20px;
+  font-size: 14px;
+  border-radius: 4px;
 }
 
-.z-button {
-  $button-height: 32px;
-  $font-size: 14px;
-  $button-bg: white;
-  $button-active-bg: #eee;
-  $button-radius: 4px;
-  $color: #999;
-  $border-color: #999;
-  $border-color-hover: #666;
-  font-size: $font-size;
-  height: $button-height;
-  line-height: $button-height;
-  padding: 0 1em;
-  border-radius: $button-radius;
-  border: 1px solid $border-color;
-  background: $button-bg;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
+.z-button + .z-button {
+  margin-left: 10px;
+}
 
-  &:hover {
-    border-color: $border-color-hover;
-  }
+.z-button:focus,
+.z-button:hover {
+  color: #409EFF;
+  border-color: #c6e2ff;
+  background-color: #ecf5ff;
+}
 
-  &:active {
-    background-color: $button-active-bg;
-  }
+.z-button:active {
+  color: #3a8ee6;
+  border-color: #3a8ee6;
+  outline: 0;
+}
 
-  &:focus {
-    outline: none;
-  }
+.z-button.is-disabled,
+.z-button.is-disabled:focus,
+.z-button.is-disabled:hover {
+  color: #c0c4cc;
+  cursor: not-allowed;
+  background-image: none;
+  background-color: #fff;
+  border-color: #ebeef5;
+}
 
-  &.icon-left {
-    > .icon {
-      order: 1;
-      margin-right: .15em;
-    }
+.z-button--primary {
+  color: #fff;
+  background-color: #409eff;
+  border-color: #409eff;
+}
 
-    > .content {
-      order: 2;
-    }
-  }
+.z-button--primary:focus,
+.z-button--primary:hover {
+  background: #66b1ff;
+  border-color: #66b1ff;
+  color: #fff;
+}
 
-  &.icon-right {
-    > .icon {
-      order: 2;
-      margin-right: 0;
-      margin-left: .15em;
-    }
+.z-button--primary.is-disabled,
+.z-button--primary.is-disabled:active,
+.z-button--primary.is-disabled:focus,
+.z-button--primary.is-disabled:hover {
+  color: #fff;
+  background-color: #a0cfff;
+  border-color: #a0cfff;
+}
 
-    > .content {
-      order: 1;
-    }
-  }
 
-  .loading {
-    animation: spin 1.7s infinite linear;
-  }
+.z-button--success {
+  color: #fff;
+  background-color: #67c23a;
+  border-color: #67c23a;
+}
+
+.z-button--success:focus,
+.z-button--success:hover {
+  background: #85ce61;
+  border-color: #85ce61;
+  color: #fff;
+}
+
+.z-button--success.is-active,
+.z-button--success:active {
+  background: #5daf34;
+  border-color: #5daf34;
+  color: #fff;
+}
+
+.z-button--success:active {
+  outline: 0;
+}
+
+.z-button--success.is-disabled,
+.z-button--success.is-disabled:active,
+.z-button--success.is-disabled:focus,
+.z-button--success.is-disabled:hover {
+  color: #fff;
+  background-color: #b3e19d;
+  border-color: #b3e19d;
+}
+
+.z-button--warning {
+  color: #fff;
+  background-color: #e6a23c;
+  border-color: #e6a23c;
+}
+
+.z-button--warning:focus,
+.z-button--warning:hover {
+  background: #ebb563;
+  border-color: #ebb563;
+  color: #fff;
+}
+
+.z-button--warning.is-active,
+.z-button--warning:active {
+  background: #cf9236;
+  border-color: #cf9236;
+  color: #fff;
+}
+
+.z-button--warning:active {
+  outline: 0;
+}
+
+.z-button--warning.is-disabled,
+.z-button--warning.is-disabled:active,
+.z-button--warning.is-disabled:focus,
+.z-button--warning.is-disabled:hover {
+  color: #fff;
+  background-color: #f3d19e;
+  border-color: #f3d19e;
+}
+
+.z-button--danger {
+  color: #fff;
+  background-color: #f56c6c;
+  border-color: #f56c6c;
+}
+
+.z-button--danger:focus,
+.z-button--danger:hover {
+  background: #f78989;
+  border-color: #f78989;
+  color: #fff;
+}
+
+.z-button--danger.is-active,
+.z-button--danger:active {
+  background: #dd6161;
+  border-color: #dd6161;
+  color: #fff;
+}
+
+.z-button--danger:active {
+  outline: 0;
+}
+
+.z-button--danger.is-disabled,
+.z-button--danger.is-disabled:active,
+.z-button--danger.is-disabled:focus,
+.z-button--danger.is-disabled:hover {
+  color: #fff;
+  background-color: #fab6b6;
+  border-color: #fab6b6;
+}
+
+
+.z-button--info {
+  color: #fff;
+  background-color: #909399;
+  border-color: #909399;
+}
+
+.z-button--info:focus,
+.z-button--info:hover {
+  background: #a6a9ad;
+  border-color: #a6a9ad;
+  color: #fff;
+}
+
+.z-button--info.is-active,
+.z-button--info:active {
+  background: #82848a;
+  border-color: #82848a;
+  color: #fff;
+}
+
+.z-button--info:active {
+  outline: 0;
+}
+
+.z-button--info.is-disabled,
+.z-button--info.is-disabled:active,
+.z-button--info.is-disabled:focus,
+.z-button--info.is-disabled:hover {
+  color: #fff;
+  background-color: #c8c9cc;
+  border-color: #c8c9cc;
+}
+
+/**圆角**/
+.z-button.is-round {
+  border-radius: 20px;
+  padding: 12px 23px;
+}
+
+/**size**/
+
+.z-button--medium {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.z-button--mini,
+.z-button--small {
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.z-button--small {
+  padding: 9px 15px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.z-button--mini {
+  padding: 7px 15px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.z-button::-moz-focus-inner {
+  border: 0;
 }
 </style>

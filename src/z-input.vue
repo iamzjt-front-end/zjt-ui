@@ -6,19 +6,19 @@
            @focus="$emit('focus', $event.target.value)"
            @blur="$emit('blur', $event.target.value)">
     <template v-if="error">
-      <icon name="error" class="icon-error"></icon>
+      <z-icon name="chahao" class="icon-error"></z-icon>
       <span class="error-message">{{ error }}</span>
     </template>
   </div>
 </template>
 
 <script>
-import Icon from './z-icon'
+import ZIcon from './z-icon'
 
 export default {
   name: "z-input",
   components: {
-    Icon,
+    'z-icon': ZIcon
   },
   props: {
     value: {
