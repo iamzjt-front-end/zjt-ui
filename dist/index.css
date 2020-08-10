@@ -1,0 +1,74 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.z-button {
+  font-size: var(--font-size);
+  height: var(--button-height);
+  padding: 0 1em;
+  border-radius: var(--button-radius);
+  border: 1px solid var(--border-color);
+  background: var(--button-bg);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
+.z-button:hover {
+  border-color: var(--border-color-hover);
+}
+.z-button:active {
+  background-color: var(--button-active-bg);
+}
+.z-button:focus {
+  outline: none;
+}
+.z-button > .icon {
+  order: 1;
+  margin-right: 0.15em;
+  margin-top: 0.125em;
+}
+.z-button > .content {
+  order: 2;
+}
+.z-button.icon-right > .icon {
+  order: 2;
+  margin-right: 0;
+  margin-left: 0.15em;
+  margin-top: 0.125em;
+}
+.z-button.icon-right > .content {
+  order: 1;
+}
+.z-button .loading {
+  animation: spin 1.7s infinite linear;
+}
+.z-button-group[data-v-b3dd3f] {
+  display: inline-flex;
+  vertical-align: middle;
+}
+.z-button-group > .z-button[data-v-b3dd3f] {
+  border-radius: 0;
+}
+.z-button-group > .z-button[data-v-b3dd3f]:not(:first-child) {
+  margin-left: -1px;
+}
+.z-button-group > .z-button[data-v-b3dd3f]:first-child {
+  border-top-left-radius: var(--button-radius);
+  border-bottom-left-radius: var(--button-radius);
+}
+.z-button-group > .z-button[data-v-b3dd3f]:last-child {
+  border-top-right-radius: var(--button-radius);
+  border-bottom-right-radius: var(--button-radius);
+}
+.z-button-group > .z-button[data-v-b3dd3f]:hover {
+  z-index: 1;
+}
+.z-icon[data-v-458567] {
+  width: 1em;
+  height: 1em;
+}
