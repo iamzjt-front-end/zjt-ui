@@ -17,6 +17,6 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -u origin master git@gitee.com:zjt1326002840/z-ui.git
+git push origin master git@gitee.com:zjt1326002840/z-ui.git
 
 cd -
