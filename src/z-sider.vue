@@ -1,16 +1,16 @@
 <template>
-<div class="z-sider">
-  <slot></slot>
-</div>
+  <div class="z-sider">
+    <slot></slot>
+  </div>
 </template>
 
 <script>
 export default {
-name: "z-sider"
+  name: "z-sider",
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .z-sider {
 }
 </style>

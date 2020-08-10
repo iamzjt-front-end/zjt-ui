@@ -22,6 +22,7 @@ module.exports = {
         collapsable: false,
         children: [
           '/guide/button',
+          '/guide/icon',
           '/guide/input',
           '/guide/grid',
           '/guide/layout',

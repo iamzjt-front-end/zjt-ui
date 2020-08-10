@@ -8,25 +8,32 @@
         <th>可选值</th>
         <th>默认值</th>
       <tr>
+        <td>type</td>
+        <td>设置按钮类型</td>
+        <td>String</td>
+        <td>default | primary | success | danger | warning | info</td>
+        <td>——</td>
+      </tr>
+      <tr>
+        <td>disabled</td>
+        <td>是否禁用按钮</td>
+        <td>Boolean</td>
+        <td>true | false</td>
+        <td>false</td>
+      </tr>
+      <tr>
+        <td>round</td>
+        <td>是否圆角按钮</td>
+        <td>Boolean</td>
+        <td>true | false</td>
+        <td>false</td>
+      </tr>
+      <tr>
         <td>icon</td>
         <td>图标类名</td>
         <td>String</td>
+        <td>参考icon页面</td>
         <td>——</td>
-        <td>——</td>
-      </tr>
-      <tr>
-        <td>icon-position</td>
-        <td>图标位置</td>
-        <td>String</td>
-        <td>left / right</td>
-        <td>left</td>
-      </tr>
-      <tr>
-        <td>loading</td>
-        <td>是否带 loading 效果</td>
-        <td>Boolean</td>
-        <td>true / false</td>
-        <td>false</td>
       </tr>
     </table>
   </div>

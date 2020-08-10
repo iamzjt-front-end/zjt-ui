@@ -1,7 +1,7 @@
 ---
 title: Collapse - 手风琴
 ---
-# 手风琴 - Collapse 
+# Collapse - 手风琴
 
 ::: tip 说明：
 形似手风琴，又名折叠面板，通过折叠收纳内容区域
