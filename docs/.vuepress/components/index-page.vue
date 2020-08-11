@@ -6,7 +6,7 @@
           <i class="iconfont icon-lightning2"></i>
           <ul>
             <li>
-              <a href="">文档</a>
+              <a href="https://zjt1326002840.gitee.io/zjt-ui/guide/install.html">文档</a>
             </li>
             <li>
               <a href="https://zjt1326002840.gitee.io/blog/" target="_blank">个人博客</a>
@@ -22,7 +22,7 @@
           <div>
             <p>从零开始的 Vue 组件库</p>
           </div>
-          <a href="">
+          <a href="https://zjt1326002840.gitee.io/zjt-ui/guide/install.html">
             <div class="startBtn">快速上手</div>
           </a>
         </div>

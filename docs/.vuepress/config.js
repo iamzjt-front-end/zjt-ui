@@ -2,14 +2,18 @@ module.exports = {
   base: '/zjt-ui/',
   title: 'ZJT UI',
   description: '从零开始的UI组件库',
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }]
+  ],
   themeConfig: {
     logo: '/logo.png',
     nav: [
-      {text: '首页', link: '/', target: "_self"},
-      {text: '文档', link: '/guide/install', target: "_self"},
+      // {text: '首页', link: '/', target: "_self"},
+      // {text: '文档', link: '/guide/install', target: "_self"},
       {text: '个人博客', link: 'https://zjt1326002840.gitee.io/blog/'},
     ],
     sidebar: [
+      '/guide/introduce',
       {
         title: '快速上手',
         collapsable: false,
