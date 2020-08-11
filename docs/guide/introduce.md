@@ -5,8 +5,6 @@ title: 介绍
 
 ### 写在前面
 
-这是本人在学习 Vue 的过程中制作的一个基于 Vue 的 UI 组件库，用意是加深对 Vue 的各种概念的理解，提高自己的水平。
-
 ZJT UI 组件样式与交互参考了一些成熟的 UI 组件库，如 Element UI和 AntDesign，然后开发的一套基于vue的UI组件库
 
 目前已支持按钮、文本输入框、网格系统、布局、Toast、Tab、Popover、手风琴、Spread等组件，目前仍在继续更新中...

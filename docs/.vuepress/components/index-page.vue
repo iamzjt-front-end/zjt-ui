@@ -3,7 +3,7 @@
     <div class="contentWrapper">
       <div class="home-header">
         <div class="menu">
-          <i class="iconfont icon-lightning2"></i>
+          <i class="iconfont icon-z"></i>
           <ul>
             <li>
               <a href="https://zjt1326002840.gitee.io/zjt-ui/guide/install.html">文档</a>
@@ -27,7 +27,7 @@
           </a>
         </div>
         <div class="iconWrapper">
-          <i class="iconfont icon-lightning2"></i>
+          <i class="iconfont icon-z"></i>
         </div>
       </div>
     </div>
@@ -43,7 +43,7 @@
           <p>创建更优雅的布局</p>
         </div>
         <div class="tips">
-          <i class="iconfont icon-popover"></i>
+          <i class="iconfont icon-customized"></i>
           <p>可定制更多的组件内容</p>
         </div>
       </div>
@@ -96,8 +96,7 @@ export default {
         display: inline-flex;
 
         ul {
-          margin: 0;
-          margin-left: 20px;
+          margin: 0 0 0 20px;
           list-style: none;
           display: flex;
           padding: 0;
@@ -115,7 +114,7 @@ export default {
         }
 
         .iconfont {
-          font-size: 42px;
+          font-size: 28px;
           color: #333333;
           overflow: hidden;
 
@@ -133,10 +132,10 @@ export default {
       flex-direction: row;
 
       .iconWrapper {
-        margin: 50px 0 0 220px;
+        margin: 0 0 0 220px;
 
         .iconfont {
-          font-size: 16em;
+          font-size: 20em;
           vertical-align: -0.15em;
           color: #333333;
           overflow: hidden;
@@ -280,14 +279,13 @@ export default {
           display: inline-flex;
 
           ul {
-            margin: 0;
-            margin-left: 20px;
+            margin: 0 0 0 20px;
             list-style: none;
             display: flex;
             padding: 0;
 
             li a {
-              font-size: 12px;
+              font-size: 16px;
               color: #615A36;
               font-weight: bold;
               padding-right: 30px;

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <z-button type="success" @click="$toast(`你好啊！你的智商余额为${parseInt(Math.random() * 100)}`, {position:'top'})">点我有惊喜</z-button>
+    <z-button type="success" @click="$toast(`你好啊！你的智商余额为999，爆棚啦！`, {position:'top'})">点我有惊喜</z-button>
     <z-button type="info" disabled @click="buttonClick">不可点击</z-button>
   </div>
 </template>
